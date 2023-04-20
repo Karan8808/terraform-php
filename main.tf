@@ -61,7 +61,7 @@ resource "aws_instance" "httpd" {
     connection {
       type        = "ssh"
       user        = local.ssh_user
-      private_key = local.private_key_path
+      private_key = file(local.private_key_path)
       host        = aws_instance.httpd.public_ip
     }
   }
